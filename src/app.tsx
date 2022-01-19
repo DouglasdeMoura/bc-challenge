@@ -9,7 +9,7 @@ import {
 } from '@giphy/react-components'
 
 const Search: FC = () => {
-  const { fetchGifs, searchKey } = useContext(SearchContext)
+  const { fetchGifs, searchKey, isFetching } = useContext(SearchContext)
 
   const handleOnGifClick = (e) => {
     console.log(e)
@@ -27,6 +27,7 @@ const Search: FC = () => {
         <div style={{ marginBottom: '2em' }}>
           <SearchBar className="input" />
         </div>
+        {isFetching && <p>Loading...</p>}
         {searchKey && (
           <Grid
             key={searchKey}
